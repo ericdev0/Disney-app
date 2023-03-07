@@ -1,0 +1,18 @@
+.side-left{
+    width: max-content;
+    max-width: 30vw;
+}
+@media (max-width: 768px) {
+    .side-left{
+        width: 100%;
+        max-width: none;
+    }
+}
+
+.itemListCharacters{
+    cursor: pointer;
+}
+.itemListCharacters:hover{
+    text-decoration: underline;
+    color: purple;
+}

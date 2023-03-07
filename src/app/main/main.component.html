@@ -1,0 +1,20 @@
+<div class="main" >
+    <div class="card" *ngFor="let character of this.characters">
+      <div class="card-header">
+        <img [src]="character.imageUrl" alt="'Olu Mel's Image">
+        <h2>{{character.name}}</h2>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li>Films: {{character.films}}</li>
+          <li>Short Films: {{character.shortFilms}}</li>
+          <li>TV Shows: {{character.tvShows}}</li>
+          <li>Video Games: {{character.videoGames}}</li>
+          <li>Park Attractions: {{character.parkAttractions}}</li>
+          <li>Allies: {{character.allies}}</li>
+          <li>Enemies: {{character.enemies}}</li>
+        </ul>
+      </div>
+    </div>
+</div>
+  
