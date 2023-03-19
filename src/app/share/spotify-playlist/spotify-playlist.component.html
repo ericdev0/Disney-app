@@ -1,0 +1,29 @@
+<div class="spotify_container" [id]="this.templateID">
+
+  <h1 class="h1Style-1">Busqueda de musica relacionada a: <span>{{this.spotifyData.chipValue}}</span> en spotify</h1>
+
+  <div *ngIf="!this.wasDataFound" class="spotify_dataNotFound">
+    <h1>🤷‍♂️La base de datos no encontro data relacionada a este titulo🤷‍♂️🤔</h1>
+    <p>👉Trata con otro titulo</p>
+  </div>
+  
+  <div class="iframes_continer" *ngIf="this.wasDataFound">
+
+    <div class="iframesType_container" *ngFor="let data of spotifyArray">
+
+      <div *ngIf="data[2]">
+        <h2 class="iframesType_title">{{data[0]}}</h2>
+  
+        <div class="iframesType_wrapper">
+          <div class="iframesType_wrp2" [id]="'iframesType_'+data[0]+'_wrp2'">
+            {{this.addIframes('iframesType_'+data[0]+'_wrp2', data[1])}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+  

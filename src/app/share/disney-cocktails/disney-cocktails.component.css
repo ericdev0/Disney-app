@@ -1,0 +1,6 @@
+.disney-cocktails_container{
+    border: 1px solid red;
+    width: 400px;
+    height: 400px;
+    overflow: auto;
+}

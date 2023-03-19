@@ -2,7 +2,21 @@
     <div class="side">
       <app-side></app-side>
     </div>
-    <div class="main">
+    <div class="main_container">
       <app-main></app-main>
+    </div>
+    
+    <div class="loadCharacters_background" *ngIf="this.showLoad">
+      <div class="loadCharacters_container">
+        <div class="loadCharacters_wrapper">
+          <p class="load_mensaje">Hola, muchas gracias por darle la oportunidad a esta app como prueba técnica, por el momento esta app no es responsiva para dispositivos móviles, pero ya lo estoy agregando para la próxima actualización.</p>
+          <div class="loadCharacters_bar">
+            <div class="loadCharacters_innerBar" [style]="'--width-loading:'+this.loadingPercentage+'%'">
+              <div class="innerBar_icon"></div>
+            </div>
+          </div>
+          <p>Cargando Personajes Disney...</p>
+        </div>
+      </div>
     </div>
 </div>

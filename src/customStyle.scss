@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+
+$DisneyTheme-primary: mat.define-palette(mat.$deep-purple-palette, A700);
+$DisneyTheme-accent: mat.define-palette(mat.$pink-palette, A400);
+
+
+$DisneyTheme-warn: mat.define-palette(mat.$red-palette);
+
+
+$DisneyTheme-theme: mat.define-dark-theme((
+  color: (
+    primary: $DisneyTheme-primary,
+    accent: $DisneyTheme-accent,
+    warn: $DisneyTheme-warn,
+  )
+));
+
+
+@include mat.all-component-themes($DisneyTheme-theme);

@@ -9,10 +9,11 @@ import { CharacterService } from '../services/Character.service';
   styleUrls: ['./side.component.css']
 })
 export class SideComponent implements OnInit {
-  characters: any[] | undefined;
-  characterName: string = ''
+  searchText: string = ''
+  characters: any;
   arraySearchCharacter: any[] = [];
   characterData: any[] = [];
+
 
   constructor(
     private disneyService: DisneyService,
@@ -20,29 +21,26 @@ export class SideComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCharactersMethods();
-  }
-
-
-  getCharactersMethods() {
-    this.disneyService.getCharacters().subscribe(data => {
-      this.characters = data.data;
-      
-      const capitalized = this.characterName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-      const search = this.getCharacterByName(`${capitalized}`)!;
-      this.arraySearchCharacter = search; 
-      // console.log(this.arraySearchCharacter);
+    this.disneyService.loadCharacters().subscribe(() => {
+      this.characters = this.disneyService.characters;
+      this.searchCharacter();
     });
   }
 
+
+  searchCharacter() {
+    const capitalized = this.searchText.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    const ArraySearch = this.getCharacterByName(`${capitalized}`)!;
+    this.arraySearchCharacter = ArraySearch;
+  }
+
   getCharacterByName(name: string) {
-    return this.characters?.filter(character => character.name.includes(`${name}`));
+    return this.characters?.filter((character: any) => character.name.includes(`${name}`));
   }
 
   dataToMain(data: any) {
-    this.characterData = [data]
-    // console.log(this.characterData);
-    this.characterService.DataLaucher.emit({data: this.characterData})
+    this.characterData = [data];
+    this.characterService.DataLaucher.emit({data: this.characterData});
   }
 
 }

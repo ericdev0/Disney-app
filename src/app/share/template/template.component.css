@@ -1,0 +1,37 @@
+.template_container{
+    padding: 1rem;
+    overflow: visible;
+}
+
+
+
+.templateCards_contianer{
+    width: 1fr;
+    height: max-content;
+}
+
+.templateCards_wrapper{
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+    grid-auto-rows: 229px;
+    grid-gap: 1rem;
+    padding-top: 2rem;
+    
+}
+.templateCards_wrapper>*{
+    width: max-content;
+    height: max-content;
+}
+
+.templateCards_wrapper>*:hover{
+    /* position: absolute; */
+    transform: scale(1.7);
+    z-index: 3;
+    transition: .3s;
+}
+
+
+
+

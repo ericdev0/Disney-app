@@ -1,9 +1,9 @@
 <div class="side-left">
-    <mat-form-field appearance="fill">
+    <mat-form-field style="width: 100%;" class="mat-form-field" appearance="fill">
       <mat-label>Buscar un personaje</mat-label>
-      <input matInput [(ngModel)]="characterName" (ngModelChange)="getCharactersMethods()">
+      <input matInput [(ngModel)]="searchText" (ngModelChange)="searchCharacter()">
     </mat-form-field>
-    <mat-nav-list>
+    <mat-nav-list class="sideLeft_mat-nav-list">
       <a mat-list-item class="itemListCharacters" *ngFor="let character of arraySearchCharacter" (click)="dataToMain(character)">
         {{ character.name }}
       </a>

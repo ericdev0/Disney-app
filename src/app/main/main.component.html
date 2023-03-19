@@ -1,20 +1,90 @@
-<div class="main" >
-    <div class="card" *ngFor="let character of this.characters">
-      <div class="card-header">
-        <img [src]="character.imageUrl" alt="'Olu Mel's Image">
-        <h2>{{character.name}}</h2>
+<div class="main">
+
+    <div class="main_wrapper">
+      <div class="main_cardStyleDefault cardStyleDefault mainCard_border">
+        <div class="card" *ngFor="let character of this.characters">
+          <div class="card-header">
+            <img [src]="character.imageUrl" alt="'Olu Mel's Image">
+            <h2>{{character.name}}</h2>
+          </div>
+          <div class="card-body">
+        
+            <div class="cardBody_wrapper">
+        
+              <mat-chip-listbox class="cardBody_wpr2" [(ngModel)]="chipSelected">
+                <div class="cardMain_segment"  *ngIf="character.films.length > 0">
+                  <h2>Films:</h2>
+                  <div class="cardMain_chips_container">
+                    <mat-chip-listbox aria-label="Fish selection">
+                      <mat-chip-option 
+                      *ngFor="let item of character.films"
+                      (click)="getChipValue( 'movie', item)"
+                      matTooltip="Buscar pelicula, serie y musica acerca de este titulo"
+                      matTooltipPosition="above"
+                      [style]="this.chipSelected===item?'pointer-events: none':'pointer-events: auto'"
+                      >{{item}}</mat-chip-option>
+                    </mat-chip-listbox>
+                  </div>
+                </div>
+                
+                <div class="cardMain_segment"  *ngIf="character.shortFilms.length > 0">
+                  <h2>Short Films:</h2>
+                  <div class="cardMain_chips_container">
+                    <mat-chip-listbox aria-label="Fish selection">
+                      <mat-chip-option 
+                      *ngFor="let item of character.shortFilms"
+                      (click)="getChipValue( 'movie', item)"
+                      matTooltip="Buscar pelicula, serie y musica acerca de este titulo"
+                      matTooltipPosition="above"
+                      [style]="this.chipSelected===item?'pointer-events: none':'pointer-events: auto'"
+                      >{{item}}</mat-chip-option>
+                    </mat-chip-listbox>
+                  </div>
+                </div>
+                
+                <div class="cardMain_segment"  *ngIf="character.tvShows.length > 0">
+                  <h2>TV Shows:</h2>
+                  <div class="cardMain_chips_container">
+                    <mat-chip-listbox aria-label="Fish selection">
+                      <mat-chip-option 
+                      *ngFor="let item of character.tvShows"
+                      (click)="getChipValue( 'tv', item)"
+                      matTooltip="Buscar pelicula, serie y musica acerca de este titulo"
+                      matTooltipPosition="above"
+                      [style]="this.chipSelected===item?'pointer-events: none':'pointer-events: auto'"
+                      >{{item}}</mat-chip-option>
+                    </mat-chip-listbox>
+                  </div>
+                </div>
+                
+                <div class="cardMain_segment"  *ngIf="character.videoGames.length > 0">
+                  <h2>Video Games:</h2>
+                  <div class="cardMain_chips_container">
+                    <mat-chip-listbox aria-label="Fish selection">
+                      <mat-chip-option 
+                      *ngFor="let item of character.videoGames"
+                      (click)="getChipValue( 'videoGame', item)"
+                      matTooltip="Buscar pelicula, serie y musica acerca de este titulo"
+                      matTooltipPosition="above"
+                      [style]="this.chipSelected===item?'pointer-events: none':'pointer-events: auto'"
+                      >{{item}}</mat-chip-option>
+                    </mat-chip-listbox>
+                  </div>
+                </div>
+
+              </mat-chip-listbox>
+              
+            </div>
+            
+          </div>
+        </div>
       </div>
-      <div class="card-body">
-        <ul>
-          <li>Films: {{character.films}}</li>
-          <li>Short Films: {{character.shortFilms}}</li>
-          <li>TV Shows: {{character.tvShows}}</li>
-          <li>Video Games: {{character.videoGames}}</li>
-          <li>Park Attractions: {{character.parkAttractions}}</li>
-          <li>Allies: {{character.allies}}</li>
-          <li>Enemies: {{character.enemies}}</li>
-        </ul>
+      <div class="cardStyleDefault" *ngFor="let template of this.templatesData">
+        <app-template [templateData]="template"></app-template>
+      </div>
+      <div class="cardStyleDefault" *ngFor="let data of this.spotifyData">
+        <app-spotify-playlist [spotifyData]="data"></app-spotify-playlist>
       </div>
     </div>
-</div>
   
+</div>

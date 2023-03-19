@@ -1,0 +1,19 @@
+<!-- [id]="this.templateID" -->
+<div class="template_container">
+    <h1 class="h1Style-1">Busqueda de {{
+        this.templateData.type === "moviesAndTVshows"? 
+        'Series o Peliculas ralacionadas a:' :
+        'Videojuegos ralacionadas a:'
+    }}
+    <strong>{{this.templateData.query}}</strong>
+    </h1>
+    <div *ngIf="!this.wasDataFound" class="template_dataNotFound">
+        <h1>🤷‍♂️La base de datos no encontro data relacionada a este titulo🤷‍♂️🤔</h1>
+        <p>👉Trata con otro titulo</p>
+    </div>
+    <div *ngIf="this.wasDataFound" class="templateCards_contianer">
+        <div class="templateCards_wrapper">
+           <app-card [id]="'app_'+film.card_id+'_card'" [cardID]="'app_'+film.card_id+'_card'" [filmData]="film" *ngFor="let film of this.cardData"></app-card>
+        </div>
+    </div>
+</div>

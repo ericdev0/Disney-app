@@ -1,5 +1,82 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --oxford-blue-1: #070f27ff;
+    --oxford-blue-1-lowOpacity: #070f27a4;
+    --oxford-blue-2: #08102bff;
+    --oxford-blue-3: #09122fff;
+    --oxford-blue-4: #283757;
+    --oxford-blue-5: #0D47A1;
+    --yale-blue: #1b3676ff;
+    --violet-blue: #1b47b4ff;
+    --french-mauve: #db7dd8ff;
+    --lavender-blush: #fbeffbff;
+    --purple-ng-materials: #751FED;
+    --blueviolet: blueviolet;
+
+
+    --border-radius: 20px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif; }
+*{
+    margin: 0; 
+    padding: 0; 
+    color: var(--lavender-blush);
+}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-*{margin: 0; padding: 0;}
+
+
+
+
+
+
+.cardStyleDefault{
+    width: 100%;
+    height: max-content;
+    background-color: var(--oxford-blue-3);
+    border-top: 10px dotted var(--oxford-blue-4);
+    position: relative;
+}
+.cardStyleDefault:first-of-type{
+    border: none;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    overflow: hidden;
+}
+.cardStyleDefault:last-of-type{
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    overflow: hidden;
+}
+
+.h1Style-1{
+    color: var(--oxford-blue-5);
+    font-weight: bolder !important;
+    padding-top: 10px;
+    margin: 0 !important;
+}
+
+
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+scrollbar-width: thin;
+scrollbar-color: var(--oxford-blue-5) var(--oxford-blue-1);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+width: 14px;
+}
+
+*::-webkit-scrollbar-track {
+background: var(--oxford-blue-1);
+}
+
+*::-webkit-scrollbar-thumb {
+background-color: var(--oxford-blue-5);
+border-radius: 10px;
+border: 3px groove var(--yale-blue);
+}

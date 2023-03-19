@@ -1,6 +1,7 @@
 .side-left{
     width: max-content;
-    max-width: 30vw;
+    max-width: 260px;
+    background-color: var(--oxford-blue-1);
 }
 @media (max-width: 768px) {
     .side-left{

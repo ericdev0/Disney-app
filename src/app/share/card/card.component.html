@@ -1,0 +1,83 @@
+<div #cardContainer class="card_container cardCssVariables">
+    <div class="card_img_container">
+        <div class="cardImg_veil itIsNotDefaultCard"></div>
+        <div class="selectImage_wrp itIsNotDefaultCard">
+            <div class="selectImage_bar" 
+            *ngFor="let screenshotLink of this.filmData.screenshots"
+            [attr.data-screenshotLink]="screenshotLink"
+            ><div></div></div>
+        </div>
+    </div>
+    <div class="card_title_container">
+        <div class="cardTitle_icons_wrp">
+            <div class="cardTitle_icon" 
+            *ngFor="let icon of this.filmData.card_icons">
+                <div class="CrdTle_icon" [matTooltip]="icon.key" matTooltipPosition="above" [style.--iconLink]="'url('+icon.iconUrl+') no-repeat'"></div>
+            </div>
+        </div>
+        <div class="cardTitle_title_wrp">
+            <p>{{this.filmData.title}}</p>
+        </div>
+        <div class="cardTitle_date_wrp">
+            <p>lanzamiento: {{this.filmData.release_date}}</p>
+        </div>
+    </div>
+    <div class="card_info_container itIsNotDefaultCard" *ngIf="this.hideDefaultCard">
+
+        <div class="card_info_segment" *ngFor="let overview of this.filmData.overview">
+            <details class="card_info_overview">
+                <summary class="cardInfo_segment_title">descripcion general:</summary>
+                <p>{{overview}}</p>
+            </details>
+        </div>
+        <div class="card_info_segment" *ngFor="let original_title of this.filmData.original_title">
+            <details class="card_info_overview">
+                <summary class="cardInfo_segment_title">titulo original:</summary>
+                <p>{{original_title}}</p>
+            </details>
+        </div>
+        <div class="card_info_segment" *ngFor="let original_language of this.filmData.original_language">
+            <details class="card_info_overview">
+                <summary class="cardInfo_segment_title">idioma original:</summary>
+                <p>{{original_language}}</p>
+            </details>
+        </div>
+        <div class="card_info_segment" *ngFor="let vote_average of this.filmData.vote_average">
+            <details class="card_info_overview">
+                <summary class="cardInfo_segment_title">puntuacion general:</summary>
+                <p>{{vote_average}}❤️</p>
+            </details>
+        </div>
+        <div class="card_info_segment" *ngFor="let genre of this.filmData.genres">
+            <details class="card_info_overview">
+                <summary class="cardInfo_segment_title">genero:</summary>
+                <ul>
+                    <li *ngFor="let item of genre">{{item.name}}</li>
+                </ul>
+            </details>
+        </div>
+        <div class="card_info_segment" *ngFor="let platform of this.filmData.platforms">
+            <details class="card_info_overview">
+                <summary class="cardInfo_segment_title">plataformas:</summary>
+                <ul>
+                    <li *ngFor="let item of platform">{{item.platform.name}}</li>
+                </ul>
+            </details>
+        </div>
+        <div class="card_info_segment" *ngFor="let store of this.filmData.stores">
+            <details class="card_info_overview">
+                <summary class="cardInfo_segment_title">tiendas:</summary>
+                <ul>
+                    <li *ngFor="let item of store">{{item.store.name}}</li>
+                </ul>
+            </details>
+        </div>
+        <div class="card_info_segment" *ngFor="let tag of this.filmData.tags">
+            <details class="card_info_overview">
+                <summary class="cardInfo_segment_title">tags:</summary>
+                <p><span *ngFor="let item of tag"> #{{item.name}} </span></p>
+            </details>
+        </div>
+
+    </div>
+</div>
