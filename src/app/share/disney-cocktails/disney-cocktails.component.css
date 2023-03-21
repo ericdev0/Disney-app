@@ -1,6 +1,82 @@
 .disney-cocktails_container{
-    border: 1px solid red;
-    width: 400px;
-    height: 400px;
-    overflow: auto;
+    width: 100%;
+    height: max-content;
+}
+
+.cocktails_title{
+    padding: 1rem 1rem 0 1rem;
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+.disney-cocktails_categories{
+    border-bottom: 1px solid var(--oxford-blue-4);
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-bottom: 5px;
+    margin: 1rem 1rem 0 1rem;
+}
+
+.cocktails_categorie_button{
+    background-color: var(--yale-blue);
+    border-radius: var(--border-radius);
+    padding: 5px 10px;
+    margin-right: .5rem;
+    cursor: pointer;
+}
+
+
+.cocktail_content_container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.cocktail_content_wrapper{
+    position: relative;
+    width: max-content;
+    height: max-content;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--oxford-blue-5);
+    margin: 1rem;
+    cursor: pointer;
+}
+.cocktail_img{
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+}
+.cocktail_img>img{
+    border-radius: 10px;
+    width: 70px; 
+    height: 70px;
+}
+.cocktail_content_wrapper>h3{
+    display: block;
+    text-align: center;
+    margin: 0;
+    pointer-events: none;
+}
+
+.cocktail_iframe_container{
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    right: -100px;
+    top: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cocktail_iframe_selected{
+    z-index: 2;
+    pointer-events: auto;
+    padding: 1rem;
+    background-color: var(--yale-blue);
+
+    animation: flipInY;
+    animation-duration: .5s;
 }

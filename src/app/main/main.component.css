@@ -10,12 +10,20 @@
 }
 
 .main_wrapper{
+    --cardAnimationIN-animation: bounce;
+    --cardAnimationIN-duration: 1s;
     box-shadow: 9px 9px 6px #000000a4;
     border-radius: var(--border-radius);
     margin: 3rem;
 }
 
-.mainCard_border{border-radius: var(--border-radius);}
+.mainCard_border{
+    border-radius: var(--border-radius);
+}
+.cardAnimationIN{
+    animation: var(--cardAnimationIN-animation);
+    animation-duration: var(--cardAnimationIN-duration);
+}
 
 .card {
     display: grid;
@@ -95,6 +103,8 @@
 
 
 
-
+.disney-cocktails_card{
+    overflow: visible;
+}
 
   

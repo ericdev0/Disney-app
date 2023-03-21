@@ -16,6 +16,7 @@ export class DisneyCocktailsComponent {
   ngOnInit(): void {
     this.getCategories();
     this.getCocktails('Ordinary Drink');
+    this.cocktailsClick();
   }
 
   getCategories(): void {
@@ -37,15 +38,47 @@ export class DisneyCocktailsComponent {
   }
   
   addIframe(strDrink: string, elementId: string) {
+    this.removeIframe();
+
     const urlBase = 'https://cocktail-stack.netlify.app/';
     const nameDrink = strDrink.replace(/\s+/g, '-').toLowerCase();
     const link = `${urlBase}${nameDrink}`;
     const iframe = document.createElement('iframe');
     iframe.src = link;
     iframe.width = '300';
-    iframe.height = '200';
+    iframe.height = '400';
     const contenedor = document.getElementById(elementId);
     contenedor?.appendChild(iframe);
+
+    contenedor?.classList.add('cocktail_iframe_selected');
   }
+
+  removeIframe() {
+    const iframeContainers = document.querySelectorAll('.cocktail_iframe_container')!;
+    iframeContainers.forEach((container) => {
+      container.classList.remove('cocktail_iframe_selected');
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
+    });
+  }
+
+  cocktailsClick() {
+    window.addEventListener('click', (e)=>{
+      const cocktailWrapper = document.querySelectorAll('.cocktail_content_wrapper')!;
+      let closeIframe: boolean = true;
+      if(cocktailWrapper){
+        cocktailWrapper.forEach((wrapper)=>{
+          if (e.target === wrapper ) {
+            closeIframe = false;
+          }
+        });
+      }
+      if (closeIframe) {
+        this.removeIframe();
+      }
+    });
+  }
+
 }
 

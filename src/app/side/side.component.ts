@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Host, OnInit, ViewChild } from '@angular/core';
 import { DisneyService } from '../services/disney.service';
 import { CharacterService } from '../services/Character.service';
+import { MainComponent } from '../main/main.component';
 
 
 @Component({
@@ -41,6 +42,23 @@ export class SideComponent implements OnInit {
   dataToMain(data: any) {
     this.characterData = [data];
     this.characterService.DataLaucher.emit({data: this.characterData});
+
+    const cardMainWrapper = document.getElementById('cardMain_wrapper')!;
+    if (cardMainWrapper.children.length === 1) {
+      cardMainWrapper.style.setProperty('--cardAnimationIN-animation', 'bounceInLeft');
+      cardMainWrapper.style.setProperty('--cardAnimationIN-duration', '1s');
+      cardMainWrapper.classList.remove('cardAnimationIN');
+      setTimeout(() => {
+        cardMainWrapper.classList.add('cardAnimationIN');
+      }, 0);
+    } else {
+      cardMainWrapper.style.setProperty('--cardAnimationIN-animation', 'bounce');
+      cardMainWrapper.style.setProperty('--cardAnimationIN-duration', '.5s');
+      cardMainWrapper.classList.remove('cardAnimationIN');
+      setTimeout(() => {
+        cardMainWrapper.classList.add('cardAnimationIN');
+      }, 0);
+    }
   }
 
 }

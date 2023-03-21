@@ -1,7 +1,7 @@
 <div class="main">
 
-    <div class="main_wrapper">
-      <div class="main_cardStyleDefault cardStyleDefault mainCard_border">
+    <div id="cardMain_wrapper" class="main_wrapper cardAnimationIN">
+      <div class="main_cardStyleDefault cardStyleDefault mainCard_border ">
         <div class="card" *ngFor="let character of this.characters">
           <div class="card-header">
             <img [src]="character.imageUrl" alt="'Olu Mel's Image">
@@ -81,6 +81,9 @@
       </div>
       <div class="cardStyleDefault" *ngFor="let template of this.templatesData">
         <app-template [templateData]="template"></app-template>
+      </div>
+      <div class="cardStyleDefault disney-cocktails_card" *ngFor="let template of this.templatesData">
+        <app-disney-cocktails></app-disney-cocktails>
       </div>
       <div class="cardStyleDefault" *ngFor="let data of this.spotifyData">
         <app-spotify-playlist [spotifyData]="data"></app-spotify-playlist>

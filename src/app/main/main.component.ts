@@ -144,6 +144,9 @@ export class MainComponent implements OnInit {
     this.TemplateReset();
   }
   
+  hola() {
+    console.log('HOLAAAAAAAA');
+  }
 
 
   // pedir data de los personajes -----------------------
@@ -162,11 +165,11 @@ export class MainComponent implements OnInit {
 
   // arreglo css
   classMainCard() {
-    const main_wrapper = document.querySelector('.main_wrapper')!;
+    const cardMainWrapper = document.getElementById('cardMain_wrapper')!;
     const mainCardStyleDefault = document.querySelector('.main_cardStyleDefault')!;
 
     const observer = new MutationObserver(() => {
-      if (main_wrapper?.children.length > 1) {
+      if (cardMainWrapper?.children.length > 1) {
         mainCardStyleDefault.classList.remove('mainCard_border');
       } else {
         mainCardStyleDefault.classList.add('mainCard_border');
@@ -174,7 +177,8 @@ export class MainComponent implements OnInit {
     });
 
     const observerConfig = { childList: true };
-    observer.observe(main_wrapper, observerConfig);
+    observer.observe(cardMainWrapper, observerConfig);
+    
   }
 
 

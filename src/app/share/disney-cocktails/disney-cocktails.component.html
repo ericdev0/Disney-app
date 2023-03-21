@@ -1,14 +1,19 @@
 <div class="disney-cocktails_container">
+    <h3 class="h1Style-1 cocktails_title">Ideas de cocteles tematicos</h3>
     <div class="disney-cocktails_categories">
         <button class="cocktails_categorie_button"
         *ngFor="let item of this.categories"
         (click)="this.getCocktails(item.strCategory)"
         >{{item.strCategory}}</button>
     </div>
-    <div *ngFor="let cocktail of cocktails">
-        <h3>{{ cocktail.strDrink }}</h3>
-        <img width="60px" height="60px" [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink" (click)="addIframe( cocktail.strDrink,'iframe_container_'+cocktail.idDrink)">
-        <div [id]="'iframe_container_'+cocktail.idDrink"></div>
-    </div> 
+    <div class="cocktail_content_container">
+        <div *ngFor="let cocktail of cocktails" class="cocktail_content_wrapper" (click)="addIframe( cocktail.strDrink,'iframe_container_'+cocktail.idDrink)">
+            <div class="cocktail_img">
+                <img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink">
+            </div>
+            <h3>{{ cocktail.strDrink }}</h3>
+            <div class="cocktail_iframe_container" [id]="'iframe_container_'+cocktail.idDrink"></div>
+        </div> 
+    </div>
 </div>
   

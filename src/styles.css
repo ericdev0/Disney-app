@@ -1,3 +1,5 @@
+@import '../node_modules/animate.css/animate.min.css';
+
 :root{
     --oxford-blue-1: #070f27ff;
     --oxford-blue-1-lowOpacity: #070f27a4;
