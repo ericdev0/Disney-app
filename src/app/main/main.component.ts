@@ -144,9 +144,6 @@ export class MainComponent implements OnInit {
     this.TemplateReset();
   }
   
-  hola() {
-    console.log('HOLAAAAAAAA');
-  }
 
 
   // pedir data de los personajes -----------------------
